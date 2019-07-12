@@ -1,5 +1,29 @@
 # 作って動かす ALife - 実装を通した人工生命モデル入門
 
+## 環境構築
+
+```
+$ pipenv install
+```
+
+実行
+
+```
+$ pipenv shell
+$ python something.py
+# 仮想環境を抜ける
+$ exit
+```
+
+### 最初にやったこと
+
+```
+$ pipenv --python 3.6.3
+$ pipenv install numpy==1.14.5 vispy==0.5.3 PyQt5==5.10.1
+```
+
+以下オリジナル
+
 本リポジトリはオライリー・ジャパン発行書籍『[作って動かす ALife](https://www.oreilly.co.jp/books/9784873118475/)』のサポートサイトです。
 
 * 書籍内に誤植などを見つけた方はこちら &rarr; [正誤表](https://github.com/alifelab/alife_book_src/wiki/%E6%AD%A3%E8%AA%A4%E8%A1%A8)
