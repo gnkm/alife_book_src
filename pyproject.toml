@@ -18,6 +18,8 @@ PyQt5 = "^5.10.1"  # '^' をつけないとインストールできない
 # PyQt5 自体はインストールされている。
 # python -c 'import PyQt5; print(dir(PyQt5))'
 # => ['__doc__', '__file__', '__loader__', '__name__', '__package__', '__path__', '__spec__']
+# このため Python スクリプトを実行すると下記メッセージが表示される。
+# > AttributeError: dlsym(0x482431898, class_getMethodImplementation_stret): symbol not found
 
 # 5 章
 Pyglet = "1.3.2"
