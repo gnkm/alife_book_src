@@ -1,0 +1,106 @@
+[tool.poetry]
+name = "alife"
+version = "0.1.0"
+description = ""
+authors = ["gnkm <genki.matsunaga@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "3.8.13"
+
+# 本書全体
+# numpy = "1.14.5"  # 書籍内で使われているバージョン
+numpy = "1.23.0"  # 2022/07/28 時点で最新。ドキュメントで情報を得やすくしたい。
+vispy = "0.5.3"
+PyQt5 = "^5.10.1"  # '^' をつけないとインストールできない
+# pyqt5-qt5 (5.15.2) がインストールできない
+# > Unable to find installation candidates for pyqt5-qt5 (5.15.2)
+# https://github.com/python-poetry/poetry/issues/3837#issuecomment-899463032
+# PyQt5 自体はインストールされている。
+# python -c 'import PyQt5; print(dir(PyQt5))'
+# => ['__doc__', '__file__', '__loader__', '__name__', '__package__', '__path__', '__spec__']
+
+# 5 章
+Pyglet = "1.3.2"
+# Pymunk = "5.3.2"
+
+# 6, 7 章
+# 必要になったときにインストールする。
+# Pillow = "5.1.0"
+# Keras = "2.2.0"
+# TensorFlow = "1.8.0"
+
+[tool.poetry.dev-dependencies]
+black = "22.6.0"
+flake8-bugbear = "16.4.0"
+icecream = "^2.1.2"
+isort = "5.10.1"
+mypy = "0.961"
+pylint = "2.14"
+pyproject-flake8 = "0.0.1a4"
+pytest = "7.1.2"
+pytest-cov = "3.0.0"
+pytest-mock = "3.8.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 119
+exclude = '''
+(
+    migrations
+    | .mypy_cache
+    | .pytest_cache
+    | dist
+)
+'''
+
+[tool.flake8]
+max-line-length = 119
+max-complexity = 10
+select = "C,E,F,W,B"
+ignore = [
+  "E203",  # Whitespace before ':'
+  "E221",  # multiple spaces before operator
+  "E241",  # Multiple spaces after ','
+  "E501",  # Line too long
+  "Module", # imported but unused
+]
+
+
+[tool.mypy]
+# common
+python_version = 3.9
+show_column_numbers = true
+show_error_context = true
+ignore_missing_imports = true
+check_untyped_defs = true
+disallow_untyped_defs = true
+# warning
+warn_return_any = true
+warn_unused_configs = true
+warn_redundant_casts = true
+
+[tool.mypy-icecream]
+ignore_missing_imports = true
+
+[tool.mypy-pandas]
+ignore_missing_imports = true
+
+[tool.isort]
+profile = "black"
+line_length = 119
+
+[tool.pylint.main]
+
+disable = [
+  "line-too-long",
+]
+
+[tool.pytest.ini_options]
+addopts = "--color=yes --cov=calcpi --cov-report=html --cov-report=term -ra"
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"

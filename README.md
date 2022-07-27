@@ -1,28 +1,36 @@
 # 作って動かす ALife - 実装を通した人工生命モデル入門
 
-## 環境構築
+## Usage
+
+仮想環境構築(1 回だけ実行すればよい)
 
 ```
-$ pipenv install
+anyenv install pyenv
+pyenv install 3.8.13
+poetry install
 ```
 
-実行
+※ Python のバージョンについては M1 Mac で使えるバージョンにした。  
+
+仮想環境に入る
 
 ```
-$ pipenv shell
-$ python something.py
-# 仮想環境を抜ける
-$ exit
+poetry shell
 ```
 
-### 最初にやったこと
+Python スクリプトを実行する
 
 ```
-$ pipenv --python 3.6.3
-$ pipenv install numpy==1.14.5 vispy==0.5.3 PyQt5==5.10.1
+python something.py
 ```
 
-以下オリジナル
+仮想環境を抜ける
+
+```
+exit
+```
+
+# 以下オリジナル
 
 本リポジトリはオライリー・ジャパン発行書籍『[作って動かす ALife](https://www.oreilly.co.jp/books/9784873118475/)』のサポートサイトです。
 
